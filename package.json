@@ -2,10 +2,14 @@
   "name": "todo_app",
   "version": "1.0.0",
   "description": "Basic todo app with modern frameworks (React, node.js, postgres)",
-  "main": "index.js",
+  
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+    "build": "if-env TYPE=server && (cd server && npm install) || (cd client && npm install)",
+    "server": "node ./server/server.js",
+    "client": "cd client && npm start" },
+  "author": "Noel Conlisk",
+  "license": "ISC",
+  "dependencies": {
+    "if-env": "^1.0.4"
+  }
 }
