@@ -6,7 +6,7 @@ const App = () => {
 
   const getData = async () => {
 
-    const userEmail = "\ntest1@test.com" //hard coded until user signup added
+    const userEmail = "\ntest@test.com" //hard coded until user signup added
     try {
       const response = await fetch(`http://localhost:8000/todos/${userEmail}`)  //url with backticks as will be passing email param.
       const json = await response.json()

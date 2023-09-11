@@ -1,7 +1,10 @@
 const PORT = process.env.PORT ?? 8000 //this uses a port variable if it exists (e.g. if deployed on a service), otherwise port 8000
 const express = require('express')
+const cors = require('cors')
 const app = express()
 const pool = require('./db')
+
+app.use(cors())
 
 //Express test to check routing is working
 app.get('/', (req, res) => {
@@ -9,9 +12,10 @@ app.get('/', (req, res) => {
 })
 
 // get all todos
-app.get('/todos', async (req, res) => {
+app.get('/todos/:userEmail', async (req, res) => {
 
-    const userEmail = "\ntest1@test.com"
+    const { userEmail } = req.params  //uses destructuring to grab the email from the url
+    //console.log(userEmail)
 
     try {
         //const todos = await pool.query('SELECT * FROM todos') //this returns all todos
