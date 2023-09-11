@@ -20,7 +20,7 @@ body{
 
 }
 
-.button-container{
+.button-container, .info-container{
     display: flex;
     align-items: center;
 }
@@ -42,4 +42,16 @@ body{
     justify-content: space-between;
     border-bottom: rgba(0,0,0, 0.05) 1px solid;
 
+}
+
+/* List Item */
+
+.list-item{
+    width: 100%;
+    display: flex;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: rgba(0,0,0, 0.08) 0 0 0 1px;
+    justify-content: space-between;
+    
 }
