@@ -3,7 +3,7 @@ import TickIcon from "./TickIcon";
 
 const ListItem = ({task}) => {
     return (
-      <div className="list-item">
+      <li className="list-item">
         <div className="info-container">
         <TickIcon/>
         <p className="task-title">{task.title}</p>
@@ -11,11 +11,11 @@ const ListItem = ({task}) => {
         </div>
 
         <div className="button-container">
-            <button>Edit</button>
-            <button>Delete</button>
+            <button className="edit">Edit</button>
+            <button className="delete">Delete</button>
         </div>
         
-      </div>
+      </li>
     );
   }
   
