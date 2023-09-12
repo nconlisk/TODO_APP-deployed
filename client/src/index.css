@@ -155,7 +155,7 @@ body{
 
 .modal .form-title-container{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .modal .form-title-container button {
