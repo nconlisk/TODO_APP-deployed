@@ -1,13 +1,13 @@
 import { useState } from "react"
 
-const Modal = ({mode, setShowModal}) => {
+const Modal = ({mode, setShowModal, task}) => {
 
     //const mode = 'create'   //dont need this anymore as create mode is passed in from ListHeader.js.
     const editMode = mode === 'edit' ? true : false
     const [data, setData] = useState({
-        userEmail: "",
-        title:"",
-        progress: "",
+        user_email: editMode ? task.user_email : null,
+        title:editMode ? task.title : null,
+        progress: editMode ? task.progress : null,
         date: editMode ? "" : new Date()
     })
 
