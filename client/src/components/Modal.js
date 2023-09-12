@@ -1,17 +1,34 @@
 import { useState } from "react"
 
-const Modal = ({mode, setShowModal, task}) => {
+const Modal = ({mode, setShowModal, getData, task}) => {
 
     //const mode = 'create'   //dont need this anymore as create mode is passed in from ListHeader.js.
     const editMode = mode === 'edit' ? true : false
     const [data, setData] = useState({
-        user_email: editMode ? task.user_email : null,
+        user_email: editMode ? task.user_email : "Ann@test.com", //null, //hard coded user for testing
         title:editMode ? task.title : null,
         progress: editMode ? task.progress : 50,
         date: editMode ? "" : new Date()
     })
 
     
+    const postData = async (e) => {
+        e.preventDefault()  //to prevent modal from closing on clicking submit, so we can see response.
+        try {
+            const response = await fetch('http://localhost:8000/todos/', {
+                method:"POST",
+                headers: {'Content-Type':'applaction/json'},
+                body: JSON.stringify(data)
+            })
+            if (response.status === 200){
+                console.log("WORKED")
+                setShowModal(false)
+                getData()
+            }
+        }catch (error) {
+            
+        }
+    }
     const handleChange = (e) => {
         //console.log('changing', e)
         const {name, value } = e.target
@@ -53,7 +70,7 @@ const Modal = ({mode, setShowModal, task}) => {
                     value={data.progress}
                     onChange={handleChange}
                 />
-                <input className={mode} type="submit"/>
+                <input className={mode} type="submit" onClick={editMode ? '' : postData}/>
             </form>
             </div>
       </div>
