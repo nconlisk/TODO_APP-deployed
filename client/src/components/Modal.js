@@ -4,9 +4,10 @@ const Modal = ({mode, setShowModal, getData, task}) => {
 
     //const mode = 'create'   //dont need this anymore as create mode is passed in from ListHeader.js.
     const editMode = mode === 'edit' ? true : false
+
     const [data, setData] = useState({
         user_email: editMode ? task.user_email : "Ann@test.com", //null, //hard coded user for testing
-        title:editMode ? task.title : null,
+        title: editMode ? task.title : "",
         progress: editMode ? task.progress : 50,
         date: editMode ? task.date : new Date()
     })
@@ -15,13 +16,14 @@ const Modal = ({mode, setShowModal, getData, task}) => {
     const postData = async (e) => {
         e.preventDefault()  //to prevent modal from closing on clicking submit, so we can see response.
         try {
-            const response = await fetch('http://localhost:8000/todos/', {
+            const response = await fetch('http://localhost:8000/todos', {
                 method:"POST",
-                headers: {'Content-Type':'applaction/json'},
+                headers: {'Content-Type':'application/json'},
                 body: JSON.stringify(data)
             })
             if (response.status === 200){
                 console.log("WORKED")
+                //console.log(data)
                 setShowModal(false)
                 getData()
             }
@@ -37,7 +39,7 @@ const Modal = ({mode, setShowModal, getData, task}) => {
         try {
             const response = await fetch(`http://localhost:8000/todos/${task.id}`, {
                 method:"PUT",
-                headers: {'Content-Type':'applaction/json'},
+                headers: {'Content-Type':'application/json'},
                 body: JSON.stringify(data)
             })
             if (response.status === 200){
@@ -48,9 +50,6 @@ const Modal = ({mode, setShowModal, getData, task}) => {
             console.log(err)            
         }
     }
-
-
-
 
 
 
