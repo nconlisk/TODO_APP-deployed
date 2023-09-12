@@ -44,7 +44,7 @@ const Modal = ({mode, setShowModal, getData, task}) => {
             })
             if (response.status === 200){
                 setShowModal(false)
-                console.log(data)
+                //console.log(data)
                 getData()
             }
         }catch (err) {
