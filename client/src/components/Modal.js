@@ -1,8 +1,28 @@
+import { useState } from "react"
+
 const Modal = () => {
 
-    const mode = 'edit'
-    const handleChange = () => {
-        console.log('changing')
+    const mode = 'create'
+    const editMode = mode === 'edit' ? true : false
+    const [data, setData] = useState({
+        userEmail: "",
+        title:"",
+        progress: "",
+        date: editMode ? "" : new Date()
+    })
+
+    
+    const handleChange = (e) => {
+        //console.log('changing', e)
+        const {name, value } = e.target
+        
+        setData(data => ({
+            ...data,
+            [name] : value
+        }))
+
+        console.log(data)   //to see the changes in data using developer tools.
+
     }
 
     return (
@@ -22,9 +42,11 @@ const Modal = () => {
                     onChange={handleChange}
                 />
                 <br/>
+                <label for='range'>Drag slider to select task progress</label>
                 <input 
                     required
                     type="range"
+                    id="range"
                     min="0"
                     max="100"
                     name="progress"
