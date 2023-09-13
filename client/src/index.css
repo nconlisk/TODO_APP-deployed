@@ -187,7 +187,7 @@ input {
 .auth-container {
     display:flex;
     justify-content: center;
-    margin: 50px;
+    margin: 5px;
 }
 
 .auth-container-box {
