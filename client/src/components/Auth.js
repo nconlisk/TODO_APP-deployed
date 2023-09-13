@@ -1,6 +1,17 @@
 const Auth = () => {
+    const isLogIn = false
+
     return (
-      <div>
+      <div className="auth-container">
+        <div className="auth-container-box">
+          <form>
+            <h2>{isLogIn ? 'Please log in' : 'Please sign up!'}</h2>
+            <input type="email"/>
+            <input type="password"/>
+            <input type="password"/>
+            
+          </form>
+        </div>
       </div>
     );
   }

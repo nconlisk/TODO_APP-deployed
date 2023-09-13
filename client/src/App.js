@@ -9,9 +9,10 @@ const App = () => {
 
   const getData = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/todos/${userEmail}`)  //url with backticks as will be passing email param.
+      //const response = await fetch(`http://localhost:8000/todos/${userEmail}`) 
+      const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos/${userEmail}`)  //url with backticks as will be passing email param.
       const json = await response.json()
-      //console.log(json)
+      console.log(json)
       setTasks(json)
 
     } catch (err) {
