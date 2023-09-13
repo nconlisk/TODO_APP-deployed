@@ -119,13 +119,14 @@ app.post('/login', async (req, res) => {
 
         if (!users.rows.length) return res.json({ detail: 'User does not exist!'})
 
-        const success = await bcrypt.compare(password, users.rows[0].hashedPassword)
+        const success = await bcrypt.compare(password, users.rows[0].hashed_password)
         const token = jwt.sign({ email }, 'secret' , {expiresIn: '1hr'})
 
         if(success){
             res.json({'email': users.rows[0].email, token})
+        } else{
+            res.json({detail: 'Login failed!'})
         }
-     
         
     } catch (err) {
         console.error(err)
