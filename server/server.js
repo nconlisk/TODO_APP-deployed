@@ -4,8 +4,8 @@ const { v4: uuidv4} = require('uuid')  //from documentation used for giving uniq
 const cors = require('cors')
 const app = express()
 const pool = require('./db')
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt')   //used to hash passwords
+const jwt = require('jsonwebtoken') //used to generate a web authentication token for use in cookie creation
 
 app.use(cors())
 app.use(express.json())   //to give our app the ability to post json

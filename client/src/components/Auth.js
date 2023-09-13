@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useCookies} from "react-cookie";
 
 const Auth = () => {
+    const [cookies, setCookie, removeCookie] = useCookies(null)
     const [isLogIn, setIsLogin] = useState(true)
     const [email, setEmail] = useState(null)
     const [password, setPassword] = useState(null)
@@ -32,6 +34,9 @@ const Auth = () => {
       //console.log(data)
       if(data.detail){
         setError(data.detail)
+      } else{
+         setCookie('Email', data.email)
+         setCookie('AuthToken', data.token)
       }
 
     }
