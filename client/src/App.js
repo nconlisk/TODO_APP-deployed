@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 import ListHeader from "./components/ListHeader";
 import ListItem from "./components/ListItem";
 import Auth from "./components/Auth";
+import { useCookies } from 'react-cookie';
 
 
 const App = () => {
-
-  const userEmail = "Ann@test.com" //hard coded until user signup added
+  const [cookies, setCookie, removeCookie] = useCookies(null)
+  const userEmail = cookies.Email //"Ann@test.com" //hard coded until user signup added
   const [ tasks, setTasks] = useState(null)
 
   const authToken = false
