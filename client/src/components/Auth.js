@@ -21,8 +21,16 @@ const Auth = () => {
             {error && <p>{error}</p>}
           </form>
           <div className="auth-options">
-            <button onClick={() => viewLogIn(false)}>Sign Up</button>
-            <butoon onClick={() => viewLogIn(true)}>Log In</butoon>
+            <button 
+            onClick={() => viewLogIn(false)}
+            style={{backgroundColor: !isLogIn ? 'rgb(255, 255, 255)' :'rgb(188, 188, 188)' }}
+            >Sign Up</button>
+            
+            <button 
+            onClick={() => viewLogIn(true)}
+            style={{backgroundColor: isLogIn ? 'rgb(255, 255, 255)' :'rgb(188, 188, 188)' }}
+            >Log In</button>
+
           </div>
         </div>
       </div>
