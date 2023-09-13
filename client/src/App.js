@@ -9,7 +9,7 @@ const App = () => {
   const userEmail = "Ann@test.com" //hard coded until user signup added
   const [ tasks, setTasks] = useState(null)
 
-  const authToken = true
+  const authToken = false
 
   const getData = async () => {
     try {
@@ -24,7 +24,10 @@ const App = () => {
     }
   }
 
-  useEffect(() => getData, [])  // empty [] dependency placed here as we only need to call once.
+  useEffect(() => {
+    if(authToken){
+      getData()}}, 
+      [])  // empty [] dependency placed here as we only need to call once.
 
   console.log(tasks)
 
