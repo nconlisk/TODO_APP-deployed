@@ -7,10 +7,11 @@ import { useCookies } from 'react-cookie';
 
 const App = () => {
   const [cookies, setCookie, removeCookie] = useCookies(null)
+  const authToken = cookies.AuthToken
   const userEmail = cookies.Email //"Ann@test.com" //hard coded until user signup added
   const [ tasks, setTasks] = useState(null)
 
-  const authToken = false
+  
 
   const getData = async () => {
     try {
