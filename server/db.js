@@ -4,11 +4,11 @@ const Pool = require('pg').Pool    // from postgres docs
 require('dotenv').config()         // for using .env for secret info
 
 const pool = new Pool({
-    user: process.env.PG_USER,
-    password: process.env.PG_PASSWORD,
-    host: process.env.PG_HOST,
+    user: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD,
+    host: process.env.POSTGRES_HOST,
     port: process.env.DBPORT,
-    database: process.env.PG_DATABASE
+    database: process.env.POSTGRES_DATABASE
 })
 
 module.exports = pool
