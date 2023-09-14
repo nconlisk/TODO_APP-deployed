@@ -226,7 +226,7 @@ input {
 }
 
 .outer-bar {
-    width: 250px;
+    width: 300px;
     height: 14px;
     background-color: rgb(216, 216, 216); 
     border-radius: 7px;
@@ -239,5 +239,5 @@ input {
 }
 
 .task-title {
-    width: 250px;
+    width: 300px;
 }
