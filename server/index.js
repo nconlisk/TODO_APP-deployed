@@ -7,7 +7,7 @@ const pool = require('./db')
 const bcrypt = require('bcrypt')   //used to hash passwords
 const jwt = require('jsonwebtoken') //used to generate a web authentication token for use in cookie creation
 
-app.use(cors())
+app.use(cors())  //to fix cors error
 app.use(express.json())   //to give our app the ability to post json
 
 //Express test to check routing is working
