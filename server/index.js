@@ -8,7 +8,6 @@ const bcrypt = require('bcrypt')   //used to hash passwords
 const jwt = require('jsonwebtoken') //used to generate a web authentication token for use in cookie creation
 const vcors = require('./vcors')  //code for vercel pre cors
 
-app.use(vcors())
 
 app.use(cors())  //to fix cors error
 app.use(express.json())   //to give our app the ability to post json
