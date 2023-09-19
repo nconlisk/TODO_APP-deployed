@@ -1,6 +1,11 @@
 // setting up db for deploying
 
-const Pool = require('pg').Pool    // from postgres docs
+import { createPool } from '@vercel/postgres';
+
+
+//const Pool = require('pg').Pool    // from postgres docs
+
+const Pool = createPool();
 require('dotenv').config()         // for using .env for secret info
 
 const pool = new Pool({
